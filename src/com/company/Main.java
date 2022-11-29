@@ -53,6 +53,11 @@ public class Main {
     }
 
     private void startNewGame() {
+        if(!isShuffled){
+            System.out.println("You Are Already in a new Game");
+            printLines();
+            return;
+        }
         System.out.println("Cards taken from Players and Ready for Next Play");
         deckOfcards = new DeckOfcards();
         isShuffled = false;
@@ -63,9 +68,15 @@ public class Main {
     }
 
     private void sortInDescendingOrder() {
-        if(!isSortedInDescendingOrder) {
+        if(!isSortedInDescendingOrder&&isCardDistributed) {
             deckOfcards.sortByRankDecreasing();
             isSortedInDescendingOrder=true;
+            isSortedInAscendingOrder=false;
+            printLines();
+            return;
+        }
+        if(!isCardDistributed){
+            System.out.println("Please Shuffle The Cards and try this option");
             printLines();
             return;
         }
@@ -74,9 +85,15 @@ public class Main {
     }
 
     private void sortInAscendingOrder() {
-        if(!isSortedInAscendingOrder) {
+        if(!isSortedInAscendingOrder&&isCardDistributed) {
             deckOfcards.sortByRankIncreasing();
             isSortedInAscendingOrder=true;
+            isSortedInDescendingOrder=false;
+            printLines();
+            return;
+        }
+        if(!isCardDistributed){
+            System.out.println("Please Shuffle The Cards and try this option");
             printLines();
             return;
         }

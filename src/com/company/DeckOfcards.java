@@ -88,7 +88,7 @@ public class DeckOfcards {
 
     public void show() {
         for (int i = 1; i <= 4; i++) {
-            System.out.println("Player" + i + ":");
+            System.out.print("Player" + i + ":");
             modifiedPlayersMap.get(i).showCards();
         }
     }
